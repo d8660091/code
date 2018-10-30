@@ -29,7 +29,6 @@ import Vue from "vue";
 import firebaseApp, { googleProvider } from "@/firebase";
 
 export default Vue.extend({
-  name: "LoginButton",
   data: function() {
     return {
       loading: false,
@@ -50,7 +49,7 @@ export default Vue.extend({
         firebaseApp
           .auth()
           .signInWithPopup(googleProvider)
-          .catch(error => {
+          .catch((error: any) => {
             console.log(error);
           })
           .finally(() => {
