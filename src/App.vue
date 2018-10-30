@@ -23,6 +23,8 @@
     <v-toolbar color="indigo" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Code Week 1</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <login-button></login-button>
     </v-toolbar>
     <v-content>
       <v-container fluid fill-height>
@@ -36,11 +38,16 @@
 </template>
 
 <script lang="ts">
+import LoginButton from "@/components/LoginButton.vue";
+
 export default {
   data: function() {
     return {
       drawer: null
     };
+  },
+  components: {
+    LoginButton
   }
 };
 </script>

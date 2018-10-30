@@ -3,7 +3,7 @@
     <v-flex xs12>
       <v-card>
         <v-card-title>
-          <h3>Monday</h3>
+          <h3>Search Insert Position (Easy)</h3>
         </v-card-title>
         <v-card-text class="px-3 text-md-left">
           <p>
@@ -16,7 +16,7 @@
         <v-card-actions>
           <v-layout justify-end>
             <v-btn flat href="https://leetcode.com/problems/search-insert-position/description/" target="_blank">View</v-btn>
-            <v-btn flat>Submit Answer</v-btn>
+            <v-btn flat>Submit</v-btn>
           </v-layout>
         </v-card-actions>
       </v-card>
