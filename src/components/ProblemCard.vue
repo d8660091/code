@@ -10,18 +10,64 @@
     <v-card-actions>
       <v-layout justify-end>
         <v-btn flat :href="problem.url" target="_blank">View</v-btn>
-        <v-btn flat>Submit</v-btn>
+        <v-btn flat @click="isSubmissionsShown = !isSubmissionsShown">Submissions ({{problem.submissions.length}})</v-btn>
       </v-layout>
     </v-card-actions>
+    <v-slide-y-transition>
+      <v-card-text v-show="isSubmissionsShown">
+        <v-divider class="mb-3"></v-divider>
+        <v-layout column v-for="submission in problem.submissions" :key="submission.author.email">
+          <v-layout justify-start align-center>
+            <v-avatar
+              :size="40"
+              class="mr-2"
+              color="grey lighten-4">
+              <img :src="submission.author.photoURL" alt="avatar">
+            </v-avatar>
+            <v-layout column align-start>
+              <h4>
+                {{submission.author.displayName}}
+              </h4>
+              <span>
+                {{submission.createdAt | fromNow}}
+              </span>
+            </v-layout>
+          </v-layout>
+          <v-flex xs12 class="mt-2">
+            <code class="code">
+              {{submission.code}}
+            </code>
+          </v-flex>
+        </v-layout>
+      </v-card-text>
+    </v-slide-y-transition>
   </v-card>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import moment from "moment";
+/* import hljs from "highlight.js"; */
 
 export default Vue.extend({
   props: ["problem"],
-  methods: {}
+  data: function() {
+    return {
+      isSubmissionsShown: false
+    };
+  },
+  filters: {
+    fromNow: function(createdAt: any) {
+      return moment.unix(createdAt.seconds).fromNow();
+    }
+  },
+  methods: {},
+  mounted: function() {
+    /* const items = this.$el.querySelectorAll(".code");
+     * items.forEach(item => {
+     *   hljs.highlightBlock(item);
+     * }); */
+  }
 });
 </script>
 
