@@ -31,9 +31,6 @@
         <router-view></router-view>
       </v-container>
     </v-content>
-    <v-footer color="indigo" app inset>
-      <span class="white--text ml-3">&copy; Code 2018</span>
-    </v-footer>
   </v-app>
 </template>
 
