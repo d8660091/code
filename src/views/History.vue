@@ -1,15 +1,15 @@
 <template>
   <v-layout>
     <v-flex xs12>
-      <problem-card-list :publishAt="publishAt"></problem-card-list>
+      <problem-card-list :publishAt="publishAt" operator="<" :hideSubmissions="true"></problem-card-list>
     </v-flex>
   </v-layout>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import moment from "moment";
 import ProblemCardList from "@/components/ProblemCardList.vue";
+import moment from "moment";
 
 export default Vue.extend({
   data: function() {

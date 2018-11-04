@@ -1,6 +1,6 @@
 <template>
   <div>
-    <problem-card v-for="problem in problems" :problem="problem" :key="problem.createdAt.seconds"></problem-card>
+    <problem-card v-for="problem in problems" :problem="problem" :key="problem.createdAt.seconds" :hideSubmissions="hideSubmissions"></problem-card>
   </div>
 </template>
 
@@ -10,6 +10,7 @@ import ProblemCard from "@/components/ProblemCard.vue";
 import { firestore } from "@/firebase";
 
 export default Vue.extend({
+  props: ["publishAt", "hideSubmissions", "operator"],
   data: function() {
     return {
       problems: [] as any[]
@@ -18,7 +19,7 @@ export default Vue.extend({
   mounted: function() {
     firestore
       .collection("problems")
-      .where("createdAt", ">=", new Date("10/29/2018"))
+      .where("publishAt", this.operator || "==", this.publishAt)
       .get()
       .then((querySnapshot: any) => {
         querySnapshot.forEach((doc: any) => {
