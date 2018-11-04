@@ -1,5 +1,6 @@
 <template>
   <v-card class="mb-3">
+    <v-progress-linear :value="submitted ? 100 : 0"></v-progress-linear>
     <v-card-title>
       <v-layout justify-space-between>
         <h3>
@@ -33,12 +34,14 @@
 <script lang="ts">
 import Vue from "vue";
 import Submission from "@/components/Submission.vue";
+import firebaseApp from "@/firebase";
 
 export default Vue.extend({
   props: ["problem", "hideSubmissions"],
   data: function() {
     return {
       isSubmissionsShown: false,
+      user: null as any,
       colors: {
         Easy: "green",
         Medium: "orange",
@@ -46,8 +49,22 @@ export default Vue.extend({
       }
     };
   },
+  computed: {
+    submitted: function() {
+      return (
+        this.user &&
+        this.problem.submissions &&
+        this.problem.submissions[this.user.uid]
+      );
+    }
+  },
   components: {
     Submission
+  },
+  mounted: function() {
+    firebaseApp.auth().onIdTokenChanged(() => {
+      this.user = firebaseApp.auth().currentUser;
+    });
   }
 });
 </script>
