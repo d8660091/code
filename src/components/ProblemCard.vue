@@ -1,16 +1,16 @@
 <template>
-  <v-card>
+  <v-card class="mb-3">
     <v-card-title>
       <h3>{{problem.title}}</h3>
     </v-card-title>
-    <v-card-text class="px-3 text-md-left">
+    <v-card-text class="px-3 text-xs-left">
       <div v-html="problem.description">
       </div>
     </v-card-text>
     <v-card-actions>
       <v-layout justify-end>
         <v-btn flat :href="problem.url" target="_blank">View</v-btn>
-        <v-btn flat @click="isSubmissionsShown = !isSubmissionsShown">Submissions ({{problem.submissions.length}})</v-btn>
+        <v-btn flat @click="isSubmissionsShown = !isSubmissionsShown">Submissions ({{problem.submissions ? Object.values(problem.submissions).length : 0}})</v-btn>
       </v-layout>
     </v-card-actions>
     <v-slide-y-transition>

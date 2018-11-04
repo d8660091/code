@@ -16,7 +16,7 @@
         </span>
       </v-layout>
     </v-layout>
-    <v-flex xs12 class="text-md-left my-2">
+    <v-flex xs12 class="text-xs-left my-2">
       <v-chip color="primary" text-color="white">
         <v-icon class="mr-1">code</v-icon>
         {{submission.language}}
@@ -34,7 +34,7 @@
       </v-tooltip>
     </v-flex>
     <v-flex xs12 class="mt-2">
-      <pre class="code text-md-left">{{submission.code | printCode}}</pre>
+      <pre class="code text-xs-left">{{submission.code | printCode}}</pre>
     </v-flex>
   </v-layout>
 </template>
