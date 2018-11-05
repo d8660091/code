@@ -1,7 +1,7 @@
 <template>
   <v-layout>
     <v-flex xs12>
-      <problem-card-list :publishAt="publishAt" operator="<" :hideSubmissions="true"></problem-card-list>
+      <problem-card-list :publishAt="publishAt" operator="<"></problem-card-list>
     </v-flex>
   </v-layout>
 </template>
