@@ -34,7 +34,7 @@
       </v-tooltip>
     </v-flex>
     <v-flex xs12 class="mt-2">
-      <pre class="code text-xs-left">{{submission.code | printCode}}</pre>
+      <pre :class="submission.language" class="code text-xs-left">{{submission.code | printCode}}</pre>
     </v-flex>
   </v-layout>
 </template>
