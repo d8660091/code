@@ -1,8 +1,8 @@
 <template>
   <v-card class="mb-3">
     <v-progress-linear :value="submitted ? 100 : 0"></v-progress-linear>
-    <v-card-title>
-      <v-layout justify-space-between>
+    <v-card-title class="pt-0">
+      <v-layout justify-space-between align-center>
         <h3>
           {{problem.title}}
         </h3>
