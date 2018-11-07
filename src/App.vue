@@ -26,7 +26,10 @@
             <v-list-tile-title>History Problems</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile href="https://chrome.google.com/webstore/detail/code/bfldfinkmdhoacdcddbabbjnbcclplci" target="_blank">
+        <v-list-tile
+          href="https://chrome.google.com/webstore/detail/code/bfldfinkmdhoacdcddbabbjnbcclplci"
+          target="_blank"
+        >
           <v-list-tile-action>
             <v-icon>extension</v-icon>
           </v-list-tile-action>

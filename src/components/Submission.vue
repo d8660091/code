@@ -1,19 +1,12 @@
 <template>
   <v-layout column>
     <v-layout justify-start align-center>
-      <v-avatar
-        :size="40"
-        class="mr-2"
-        color="grey lighten-4">
+      <v-avatar :size="40" class="mr-2" color="grey lighten-4">
         <img :src="submission.author.photoURL" alt="avatar">
       </v-avatar>
       <v-layout column align-start>
-        <h4>
-          {{submission.author.displayName}}
-        </h4>
-        <span>
-          {{submission.createdAt | fromNow}}
-        </span>
+        <h4>{{submission.author.displayName}}</h4>
+        <span>{{submission.createdAt | fromNow}}</span>
       </v-layout>
     </v-layout>
     <v-flex xs12 class="text-xs-left my-2">
