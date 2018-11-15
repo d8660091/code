@@ -13,11 +13,12 @@ export default Vue.extend({
   props: ["publishAt", "hideSubmissions", "operator"],
   data: function() {
     return {
-      problems: [] as any[]
+      problems: [] as any[],
+      unsubscribe: null as any
     };
   },
   mounted: function() {
-    firestore
+    this.unsubscribe = firestore
       .collection("problems")
       .where("publishAt", this.operator || "==", this.publishAt)
       .onSnapshot((querySnapshot: any) => {
@@ -27,6 +28,9 @@ export default Vue.extend({
         });
         this.problems = problems;
       });
+  },
+  destroyed: function() {
+    this.unsubscribe && this.unsubscribe();
   },
   components: {
     ProblemCard
