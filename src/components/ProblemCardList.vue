@@ -20,13 +20,13 @@ export default Vue.extend({
     firestore
       .collection("problems")
       .where("publishAt", this.operator || "==", this.publishAt)
-      .get()
-      .then((querySnapshot: any) => {
+      .onSnapshot((querySnapshot: any) => {
+        const problems: any[] = [];
         querySnapshot.forEach((doc: any) => {
-          this.problems.push(doc.data());
+          problems.push(doc.data());
         });
-      })
-      .catch(console.log);
+        this.problems = problems;
+      });
   },
   components: {
     ProblemCard
